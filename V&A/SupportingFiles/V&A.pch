@@ -1,0 +1,57 @@
+//
+//  V&Apch.h
+//  V&A
+//
+//  Created by 梁立保 on 2017/11/9.
+//  Copyright © 2017年 梁立保. All rights reserved.
+//
+
+#ifndef V_Apch_h
+#define V_Apch_h
+
+#define SCREEN_HEIGHT  [[UIScreen mainScreen] bounds].size.height
+#define SCREEN_WIDTH   [[UIScreen mainScreen] bounds].size.width
+#define YKUserDefaults [NSUserDefaults standardUserDefaults]
+///-------------------------
+/// @name DeviceMode Detection
+///-------------------------
+#define DEVICE_IS_IPAD ([[[UIDevice currentDevice].model substringToIndex:4] isEqualToString:@"iPad"])
+
+#define FORMAT(str, ...) [NSString stringWithFormat: str, __VA_ARGS__]
+
+#define SET_COLOR(color) [YKThemeManager colorNamed:@#color]
+#define CHECK_NIL(value) (value?:[NSNull null])
+#define CHECK_NIL_STRING(value) (value?:@"")
+
+//获取颜色
+#define RGBA(r, g, b, a)  [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r, g, b)      RGBA(r, g, b, 1.0f)
+//#define navigationBarColor RGB(33, 192, 174)
+//#define separaterColor RGB(200, 199, 204)
+#define FONT_XXL [UIFont systemFontOfSize:18.0]
+#define FONT_XL  [UIFont systemFontOfSize:17.0]
+#define FONT_L   [UIFont systemFontOfSize:16.0]
+#define FONT_M   [UIFont systemFontOfSize:15.0]
+#define FONT_LS  [UIFont systemFontOfSize:14.0]
+#define FONT_S   [UIFont systemFontOfSize:13.0]
+#define FONT_MS  [UIFont systemFontOfSize:12.0]
+#define FONT_XS  [UIFont systemFontOfSize:11.0]
+
+
+
+//++++++++++++++++++++++++++++++++++++++++++++++
+//  if-04
+#ifdef DEBUG
+
+#define YKLog(...) NSLog(__VA_ARGS__);
+#define YKLogFunc YKLog(@"%s",__func__);
+
+#else
+
+#define DEBUG NO
+#define YKLog(...)
+#define YKLogFunc
+// endif-04与之对应if-04
+#endif
+//++++++++++++++++++++++++++++++++++++++++++++++
+#endif /* V_Apch_h */

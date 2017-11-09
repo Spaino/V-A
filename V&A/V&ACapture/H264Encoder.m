@@ -7,7 +7,7 @@
 //
 
 #import "H264Encoder.h"
-#import "NSString+YKCDT.h"
+#import "NSString+CDT.h"
 #import <VideoToolbox/VideoToolbox.h>
 
 @interface H264Encoder ()
@@ -109,7 +109,7 @@ void didCompressionCallback(void * CM_NULLABLE outputCallbackRefCon, void * CM_N
 	char *dataPointer;
 	CMBlockBufferGetDataPointer(blockBuffer, 0, NULL, &totalLength, &dataPointer);
 	// 3.3.一帧的图像可能需要写入多个NALU单元--> Slice切片
-	static const int H264HeaderLength = 4;
+	const int H264HeaderLength = 4;
 	size_t bufferOffset = 0;
 	while (bufferOffset < totalLength - H264HeaderLength){
 		// 3.4.从起始位置拷贝H264HeaderLength长度的地址，计算NALULength

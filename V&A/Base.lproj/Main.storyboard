@@ -56,6 +56,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="changeCameraButton" destination="PgO-ji-2I0" id="pzG-Jw-Rjt"/>
                         <outlet property="startEncodeButton" destination="HYu-YE-ukj" id="ms9-Df-OnZ"/>
                         <outlet property="stopEncodeButton" destination="rGj-2i-JxL" id="eeS-DI-AYK"/>
                     </connections>

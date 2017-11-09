@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 ZSS. All rights reserved.
 //  快速创建沙盒缓存目录,文档mul,临时目录全路径分类
 
-#import "NSString+YKCDT.h"
+#import "NSString+CDT.h"
 
-@implementation NSString (YKCDT)
+@implementation NSString (CDT)
 
 - (instancetype)cacheDir
 {

@@ -10,6 +10,9 @@
 		3106D80B1FB45F5100476D25 /* Group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8081FB45F5000476D25 /* Group@2x.png */; };
 		3106D80C1FB45F5100476D25 /* Group@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8091FB45F5000476D25 /* Group@1x.png */; };
 		3106D80D1FB45F5100476D25 /* Group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D80A1FB45F5100476D25 /* Group@3x.png */; };
+		3106D8101FB4851B00476D25 /* VAHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106D80F1FB4851B00476D25 /* VAHud.m */; };
+		3106D8131FB4873E00476D25 /* UIView+VLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */; };
+		3106D8181FB4917400476D25 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8171FB4917400476D25 /* Default-568h@2x.png */; };
 		31D341DF1FB1E7C4006D73CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341DE1FB1E7C4006D73CA /* AppDelegate.m */; };
 		31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341E11FB1E7C4006D73CA /* ViewController.m */; };
 		31D341E51FB1E7C4006D73CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D341E31FB1E7C4006D73CA /* Main.storyboard */; };
@@ -18,14 +21,21 @@
 		31D341ED1FB1E7C4006D73CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341EC1FB1E7C4006D73CA /* main.m */; };
 		31D341F61FB1E841006D73CA /* VACapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F51FB1E841006D73CA /* VACapture.m */; };
 		31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F81FB1E992006D73CA /* H264Encoder.m */; };
-		31D341FF1FB1EED7006D73CA /* NSString+YKCDT.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341FE1FB1EED7006D73CA /* NSString+YKCDT.m */; };
+		31D341FF1FB1EED7006D73CA /* NSString+CDT.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341FE1FB1EED7006D73CA /* NSString+CDT.m */; };
 		31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */; };
+		7DD4FE171B89B7772201EADA /* libPods-V&A.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3106D8081FB45F5000476D25 /* Group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@2x.png"; sourceTree = "<group>"; };
 		3106D8091FB45F5000476D25 /* Group@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@1x.png"; sourceTree = "<group>"; };
 		3106D80A1FB45F5100476D25 /* Group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@3x.png"; sourceTree = "<group>"; };
+		3106D80E1FB4851B00476D25 /* VAHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAHud.h; sourceTree = "<group>"; };
+		3106D80F1FB4851B00476D25 /* VAHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAHud.m; sourceTree = "<group>"; };
+		3106D8111FB4873E00476D25 /* UIView+VLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VLAdditions.h"; sourceTree = "<group>"; };
+		3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VLAdditions.m"; sourceTree = "<group>"; };
+		3106D8161FB4906F00476D25 /* V&A.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "V&A.pch"; sourceTree = "<group>"; };
+		3106D8171FB4917400476D25 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		31D341DA1FB1E7C4006D73CA /* V&A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V&A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D341DD1FB1E7C4006D73CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31D341DE1FB1E7C4006D73CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -41,10 +51,13 @@
 		31D341F71FB1E992006D73CA /* H264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
 		31D341F81FB1E992006D73CA /* H264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 		31D341FB1FB1EABB006D73CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		31D341FD1FB1EED7006D73CA /* NSString+YKCDT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YKCDT.h"; sourceTree = "<group>"; };
-		31D341FE1FB1EED7006D73CA /* NSString+YKCDT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YKCDT.m"; sourceTree = "<group>"; };
+		31D341FD1FB1EED7006D73CA /* NSString+CDT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CDT.h"; sourceTree = "<group>"; };
+		31D341FE1FB1EED7006D73CA /* NSString+CDT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CDT.m"; sourceTree = "<group>"; };
 		31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
 		31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
+		431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.debug.xcconfig"; sourceTree = "<group>"; };
+		9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-V&A.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA4BE0A76C4A79F722FF2E3E /* Pods-V&A.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.release.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DD4FE171B89B7772201EADA /* libPods-V&A.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,26 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		3106D8141FB48FB900476D25 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				31D341E61FB1E7C4006D73CA /* Assets.xcassets */,
+				31D341E81FB1E7C4006D73CA /* LaunchScreen.storyboard */,
+				31D341EB1FB1E7C4006D73CA /* Info.plist */,
+				31D341EC1FB1E7C4006D73CA /* main.m */,
+				3106D8161FB4906F00476D25 /* V&A.pch */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		31D341D11FB1E7C4006D73CA = {
 			isa = PBXGroup;
 			children = (
+				3106D8171FB4917400476D25 /* Default-568h@2x.png */,
 				31D341DC1FB1E7C4006D73CA /* V&A */,
 				31D341DB1FB1E7C4006D73CA /* Products */,
 				31D341FA1FB1EABA006D73CA /* Frameworks */,
+				BD8140F8849A0A72301F8BA3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,15 +119,12 @@
 				3106D7FB1FB4533800476D25 /* Images */,
 				31D341FC1FB1EED7006D73CA /* Tools */,
 				31D341F31FB1E824006D73CA /* V&ACapture */,
+				3106D8141FB48FB900476D25 /* SupportingFiles */,
 				31D341DD1FB1E7C4006D73CA /* AppDelegate.h */,
 				31D341DE1FB1E7C4006D73CA /* AppDelegate.m */,
 				31D341E01FB1E7C4006D73CA /* ViewController.h */,
 				31D341E11FB1E7C4006D73CA /* ViewController.m */,
 				31D341E31FB1E7C4006D73CA /* Main.storyboard */,
-				31D341E61FB1E7C4006D73CA /* Assets.xcassets */,
-				31D341E81FB1E7C4006D73CA /* LaunchScreen.storyboard */,
-				31D341EB1FB1E7C4006D73CA /* Info.plist */,
-				31D341EC1FB1E7C4006D73CA /* main.m */,
 			);
 			path = "V&A";
 			sourceTree = "<group>";
@@ -121,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				31D341FB1FB1EABB006D73CA /* AVFoundation.framework */,
+				9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,10 +154,23 @@
 		31D341FC1FB1EED7006D73CA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				31D341FD1FB1EED7006D73CA /* NSString+YKCDT.h */,
-				31D341FE1FB1EED7006D73CA /* NSString+YKCDT.m */,
+				31D341FD1FB1EED7006D73CA /* NSString+CDT.h */,
+				31D341FE1FB1EED7006D73CA /* NSString+CDT.m */,
+				3106D8111FB4873E00476D25 /* UIView+VLAdditions.h */,
+				3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */,
+				3106D80E1FB4851B00476D25 /* VAHud.h */,
+				3106D80F1FB4851B00476D25 /* VAHud.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		BD8140F8849A0A72301F8BA3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */,
+				EA4BE0A76C4A79F722FF2E3E /* Pods-V&A.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +180,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 31D341F01FB1E7C4006D73CA /* Build configuration list for PBXNativeTarget "V&A" */;
 			buildPhases = (
+				9E0647876EDC6E2BED21F51B /* [CP] Check Pods Manifest.lock */,
 				31D341D61FB1E7C4006D73CA /* Sources */,
 				31D341D71FB1E7C4006D73CA /* Frameworks */,
 				31D341D81FB1E7C4006D73CA /* Resources */,
+				1D88C2BE23909A18C577E665 /* [CP] Embed Pods Frameworks */,
+				783C309CBD8395417851B775 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -197,11 +239,60 @@
 				3106D80C1FB45F5100476D25 /* Group@1x.png in Resources */,
 				3106D80D1FB45F5100476D25 /* Group@3x.png in Resources */,
 				3106D80B1FB45F5100476D25 /* Group@2x.png in Resources */,
+				3106D8181FB4917400476D25 /* Default-568h@2x.png in Resources */,
 				31D341E51FB1E7C4006D73CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D88C2BE23909A18C577E665 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-V&A/Pods-V&A-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		783C309CBD8395417851B775 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-V&A/Pods-V&A-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E0647876EDC6E2BED21F51B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		31D341D61FB1E7C4006D73CA /* Sources */ = {
@@ -210,11 +301,13 @@
 			files = (
 				31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */,
 				31D341F61FB1E841006D73CA /* VACapture.m in Sources */,
-				31D341FF1FB1EED7006D73CA /* NSString+YKCDT.m in Sources */,
+				3106D8101FB4851B00476D25 /* VAHud.m in Sources */,
+				31D341FF1FB1EED7006D73CA /* NSString+CDT.m in Sources */,
 				31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */,
 				31D341ED1FB1E7C4006D73CA /* main.m in Sources */,
 				31D341DF1FB1E7C4006D73CA /* AppDelegate.m in Sources */,
 				31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */,
+				3106D8131FB4873E00476D25 /* UIView+VLAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,11 +439,13 @@
 		};
 		31D341F11FB1E7C4006D73CA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ82P54YUA;
-				INFOPLIST_FILE = "V&A/Info.plist";
+				GCC_PREFIX_HEADER = "V&A/SupportingFiles/V&A.pch";
+				INFOPLIST_FILE = "V&A/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.V-A";
@@ -361,11 +456,13 @@
 		};
 		31D341F21FB1E7C4006D73CA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4BE0A76C4A79F722FF2E3E /* Pods-V&A.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ82P54YUA;
-				INFOPLIST_FILE = "V&A/Info.plist";
+				GCC_PREFIX_HEADER = "V&A/SupportingFiles/V&A.pch";
+				INFOPLIST_FILE = "V&A/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.V-A";

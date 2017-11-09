@@ -126,18 +126,47 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	// 5.开始采集
 	[session startRunning];
 
+	NSNotificationCenter *notificationCenter= [NSNotificationCenter defaultCenter];
+	//会话出错
+	[notificationCenter addObserver:self selector:@selector(sessionRuntimeError:) name:AVCaptureSessionRuntimeErrorNotification object:session];
+
+}
+
+/**
+ *  会话出错
+ *
+ *  @param notification 通知对象
+ */
+-(void)sessionRuntimeError:(NSNotification *)notification{
+	NSLog(@"会话发生错误.");
 }
 
 
 //02.结束录制
 - (void)stopCapturing {
+	
 	self.manualCloseTorch = NO;
+	self.voluntaryOpenTorch = NO;
 	[self.previewLayer removeFromSuperlayer];
 	[self.focusCursor removeFromSuperview];
 	self.focusCursor = nil;
 	[self.torchStateButton removeFromSuperview];
 	self.torchStateButton = nil;
-	[self.session stopRunning];
+	
+	__weak typeof(self) weakSelf = self;
+	dispatch_async(self.mCaptureQueue, ^{
+			if ([weakSelf.device lockForConfiguration:nil]) {
+				[weakSelf.device setTorchMode:AVCaptureTorchModeOff];
+				[weakSelf.device unlockForConfiguration];
+			}
+			
+		
+		[weakSelf.session stopRunning];
+		weakSelf.device = nil;
+		weakSelf.session = nil;
+	});
+	
+	self.previewLayer = nil;
 }
 
 //03.实现代理方法
@@ -167,13 +196,15 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	NSDictionary * exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
 	float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
 	
-	if (brightnessValue <= -1) {
+	if (brightnessValue <= -1 && (self.device.position == AVCaptureDevicePositionBack)) {
 		// 判断如果有手动关闭了闪光灯就不再自动开启
 		if (self.manualCloseTorch) {
 			return;
 		}
 		
 		NSError *error;
+		// TODO:还需要判断当从前置摄像头切换来时不能立马开启摄像头..(不然导致捕捉出错,画面暂停)
+		
 		if ([self.device lockForConfiguration:&error]) {
 			// 首先判断是否有闪光灯.
 			if (self.device.hasTorch) {
@@ -193,6 +224,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	}
 	
 	NSLog(@"%f", brightnessValue);
+	
 }
 
 - (void)torchStateButtonAction:(UIButton *)torchStateButton {

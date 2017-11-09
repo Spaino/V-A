@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (YKCDT)
+@interface NSString (CDT)
 
 /**
  *  生成缓存目录全路径
