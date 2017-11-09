@@ -156,7 +156,9 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	__weak typeof(self) weakSelf = self;
 	dispatch_async(self.mCaptureQueue, ^{
 			if ([weakSelf.device lockForConfiguration:nil]) {
-				[weakSelf.device setTorchMode:AVCaptureTorchModeOff];
+				if (weakSelf.device.isTorchActive) {
+					[weakSelf.device setTorchMode:AVCaptureTorchModeOff];
+				}
 				[weakSelf.device unlockForConfiguration];
 			}
 			
