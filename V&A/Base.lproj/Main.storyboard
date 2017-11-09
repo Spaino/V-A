@@ -32,20 +32,33 @@
                                     <action selector="stopEncodeAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZEx-aE-MBT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-ji-2I0">
+                                <rect key="frame" x="156" y="601" width="62" height="30"/>
+                                <state key="normal" title="镜头切换"/>
+                                <connections>
+                                    <action selector="changeCameraAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Udv-C1-4d6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HYu-YE-ukj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="581" id="24H-U6-hkE"/>
                             <constraint firstItem="HYu-YE-ukj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="CCb-Q2-cnP"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rGj-2i-JxL" secondAttribute="trailing" constant="42" id="IyP-ka-uic"/>
-                            <constraint firstItem="rGj-2i-JxL" firstAttribute="leading" secondItem="HYu-YE-ukj" secondAttribute="trailing" constant="107" id="TWc-ZY-BgA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HYu-YE-ukj" secondAttribute="bottom" constant="36" id="c0h-dc-gj0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="PgO-ji-2I0" secondAttribute="bottom" constant="36" id="he5-UT-nSW"/>
+                            <constraint firstItem="rGj-2i-JxL" firstAttribute="leading" secondItem="PgO-ji-2I0" secondAttribute="trailing" constant="23" id="j4y-xh-0de"/>
                             <constraint firstItem="rGj-2i-JxL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="581" id="mXi-JO-uuf"/>
+                            <constraint firstItem="PgO-ji-2I0" firstAttribute="leading" secondItem="HYu-YE-ukj" secondAttribute="trailing" constant="22" id="oG8-Vl-63a"/>
+                            <constraint firstItem="PgO-ji-2I0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="581" id="rKV-fb-voS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="rGj-2i-JxL" secondAttribute="bottom" constant="36" id="tBO-vF-Kax"/>
-                            <constraint firstItem="rGj-2i-JxL" firstAttribute="leading" secondItem="HYu-YE-ukj" secondAttribute="trailing" constant="107" id="tzI-e9-J4J"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="startEncodeButton" destination="HYu-YE-ukj" id="ms9-Df-OnZ"/>
+                        <outlet property="stopEncodeButton" destination="rGj-2i-JxL" id="eeS-DI-AYK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

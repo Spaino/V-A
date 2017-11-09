@@ -72,7 +72,6 @@
 }
 
 void didCompressionCallback(void * CM_NULLABLE outputCallbackRefCon, void * CM_NULLABLE sourceFrameRefCon, OSStatus status, VTEncodeInfoFlags infoFlags, CM_NULLABLE CMSampleBufferRef sampleBuffer) {
-	NSLog(@"%d", status);
 	// 0.获取当前对象
 	H264Encoder *encoder = (__bridge H264Encoder *)(outputCallbackRefCon);
 	

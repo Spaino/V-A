@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3106D80B1FB45F5100476D25 /* Group@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8081FB45F5000476D25 /* Group@2x.png */; };
+		3106D80C1FB45F5100476D25 /* Group@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8091FB45F5000476D25 /* Group@1x.png */; };
+		3106D80D1FB45F5100476D25 /* Group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D80A1FB45F5100476D25 /* Group@3x.png */; };
 		31D341DF1FB1E7C4006D73CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341DE1FB1E7C4006D73CA /* AppDelegate.m */; };
 		31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341E11FB1E7C4006D73CA /* ViewController.m */; };
 		31D341E51FB1E7C4006D73CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D341E31FB1E7C4006D73CA /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3106D8081FB45F5000476D25 /* Group@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@2x.png"; sourceTree = "<group>"; };
+		3106D8091FB45F5000476D25 /* Group@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@1x.png"; sourceTree = "<group>"; };
+		3106D80A1FB45F5100476D25 /* Group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@3x.png"; sourceTree = "<group>"; };
 		31D341DA1FB1E7C4006D73CA /* V&A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V&A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D341DD1FB1E7C4006D73CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31D341DE1FB1E7C4006D73CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -52,6 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3106D7FB1FB4533800476D25 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				3106D8091FB45F5000476D25 /* Group@1x.png */,
+				3106D8081FB45F5000476D25 /* Group@2x.png */,
+				3106D80A1FB45F5100476D25 /* Group@3x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		31D341D11FB1E7C4006D73CA = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +88,7 @@
 		31D341DC1FB1E7C4006D73CA /* V&A */ = {
 			isa = PBXGroup;
 			children = (
+				3106D7FB1FB4533800476D25 /* Images */,
 				31D341FC1FB1EED7006D73CA /* Tools */,
 				31D341F31FB1E824006D73CA /* V&ACapture */,
 				31D341DD1FB1E7C4006D73CA /* AppDelegate.h */,
@@ -177,6 +194,9 @@
 			files = (
 				31D341EA1FB1E7C4006D73CA /* LaunchScreen.storyboard in Resources */,
 				31D341E71FB1E7C4006D73CA /* Assets.xcassets in Resources */,
+				3106D80C1FB45F5100476D25 /* Group@1x.png in Resources */,
+				3106D80D1FB45F5100476D25 /* Group@3x.png in Resources */,
+				3106D80B1FB45F5100476D25 /* Group@2x.png in Resources */,
 				31D341E51FB1E7C4006D73CA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -317,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -331,6 +351,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ82P54YUA;
 				INFOPLIST_FILE = "V&A/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.V-A";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -345,6 +366,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ82P54YUA;
 				INFOPLIST_FILE = "V&A/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ss.V-A";
 				PRODUCT_NAME = "$(TARGET_NAME)";

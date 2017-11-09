@@ -11,4 +11,5 @@
 @interface VACapture : NSObject
 - (void)startCapturing:(UIView *)preView;
 - (void)stopCapturing;
+- (void)swapFrontAndBackCameras;
 @end
