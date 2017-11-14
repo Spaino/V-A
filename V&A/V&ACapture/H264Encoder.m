@@ -20,7 +20,7 @@
 //01.准备编码
 - (void)prepareEncodeWithWidth:(int)width height:(int)height {
 	
-	NSString *file = [@"va.h264" cacheDir];
+	NSString *file = [sourceVideoName cacheDir];
 	// 如果原来有文件,则删除
 	[[NSFileManager defaultManager] removeItemAtPath:file error:nil ];
 	[[NSFileManager defaultManager] createFileAtPath:file contents:nil attributes:nil];

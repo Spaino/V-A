@@ -9,6 +9,9 @@
 #ifndef V_Apch_h
 #define V_Apch_h
 
+// 全局导入文件.
+#import "VAGlobal.h"
+
 #define SCREEN_HEIGHT  [[UIScreen mainScreen] bounds].size.height
 #define SCREEN_WIDTH   [[UIScreen mainScreen] bounds].size.width
 #define YKUserDefaults [NSUserDefaults standardUserDefaults]

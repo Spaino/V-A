@@ -11,8 +11,10 @@
 		3106D80C1FB45F5100476D25 /* Group@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8091FB45F5000476D25 /* Group@1x.png */; };
 		3106D80D1FB45F5100476D25 /* Group@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D80A1FB45F5100476D25 /* Group@3x.png */; };
 		3106D8101FB4851B00476D25 /* VAHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106D80F1FB4851B00476D25 /* VAHud.m */; };
-		3106D8131FB4873E00476D25 /* UIView+VLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */; };
 		3106D8181FB4917400476D25 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3106D8171FB4917400476D25 /* Default-568h@2x.png */; };
+		3156083F1FBAD88F002AA751 /* NSString+CDT.m in Sources */ = {isa = PBXBuildFile; fileRef = 3156083C1FBAD88F002AA751 /* NSString+CDT.m */; };
+		315608401FBAD88F002AA751 /* UIView+VLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3156083E1FBAD88F002AA751 /* UIView+VLAdditions.m */; };
+		315608441FBAD90D002AA751 /* VAGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 315608431FBAD90D002AA751 /* VAGlobal.m */; };
 		31D341DF1FB1E7C4006D73CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341DE1FB1E7C4006D73CA /* AppDelegate.m */; };
 		31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341E11FB1E7C4006D73CA /* ViewController.m */; };
 		31D341E51FB1E7C4006D73CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31D341E31FB1E7C4006D73CA /* Main.storyboard */; };
@@ -21,8 +23,8 @@
 		31D341ED1FB1E7C4006D73CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341EC1FB1E7C4006D73CA /* main.m */; };
 		31D341F61FB1E841006D73CA /* VACapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F51FB1E841006D73CA /* VACapture.m */; };
 		31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F81FB1E992006D73CA /* H264Encoder.m */; };
-		31D341FF1FB1EED7006D73CA /* NSString+CDT.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341FE1FB1EED7006D73CA /* NSString+CDT.m */; };
 		31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */; };
+		31F190151FB5D8C6000FAF7C /* H264Deencoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F190141FB5D8C6000FAF7C /* H264Deencoder.m */; };
 		7DD4FE171B89B7772201EADA /* libPods-V&A.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +34,14 @@
 		3106D80A1FB45F5100476D25 /* Group@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Group@3x.png"; sourceTree = "<group>"; };
 		3106D80E1FB4851B00476D25 /* VAHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAHud.h; sourceTree = "<group>"; };
 		3106D80F1FB4851B00476D25 /* VAHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAHud.m; sourceTree = "<group>"; };
-		3106D8111FB4873E00476D25 /* UIView+VLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VLAdditions.h"; sourceTree = "<group>"; };
-		3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VLAdditions.m"; sourceTree = "<group>"; };
 		3106D8161FB4906F00476D25 /* V&A.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "V&A.pch"; sourceTree = "<group>"; };
 		3106D8171FB4917400476D25 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		3156083B1FBAD88F002AA751 /* NSString+CDT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CDT.h"; sourceTree = "<group>"; };
+		3156083C1FBAD88F002AA751 /* NSString+CDT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CDT.m"; sourceTree = "<group>"; };
+		3156083D1FBAD88F002AA751 /* UIView+VLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+VLAdditions.h"; sourceTree = "<group>"; };
+		3156083E1FBAD88F002AA751 /* UIView+VLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+VLAdditions.m"; sourceTree = "<group>"; };
+		315608421FBAD90D002AA751 /* VAGlobal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAGlobal.h; sourceTree = "<group>"; };
+		315608431FBAD90D002AA751 /* VAGlobal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAGlobal.m; sourceTree = "<group>"; };
 		31D341DA1FB1E7C4006D73CA /* V&A.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "V&A.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D341DD1FB1E7C4006D73CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31D341DE1FB1E7C4006D73CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -51,10 +57,10 @@
 		31D341F71FB1E992006D73CA /* H264Encoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Encoder.h; sourceTree = "<group>"; };
 		31D341F81FB1E992006D73CA /* H264Encoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Encoder.m; sourceTree = "<group>"; };
 		31D341FB1FB1EABB006D73CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		31D341FD1FB1EED7006D73CA /* NSString+CDT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CDT.h"; sourceTree = "<group>"; };
-		31D341FE1FB1EED7006D73CA /* NSString+CDT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CDT.m"; sourceTree = "<group>"; };
 		31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
 		31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
+		31F190131FB5D8C6000FAF7C /* H264Deencoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Deencoder.h; sourceTree = "<group>"; };
+		31F190141FB5D8C6000FAF7C /* H264Deencoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Deencoder.m; sourceTree = "<group>"; };
 		431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.debug.xcconfig"; sourceTree = "<group>"; };
 		9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-V&A.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4BE0A76C4A79F722FF2E3E /* Pods-V&A.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.release.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +100,26 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		3156083A1FBAD88F002AA751 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				3156083B1FBAD88F002AA751 /* NSString+CDT.h */,
+				3156083C1FBAD88F002AA751 /* NSString+CDT.m */,
+				3156083D1FBAD88F002AA751 /* UIView+VLAdditions.h */,
+				3156083E1FBAD88F002AA751 /* UIView+VLAdditions.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		315608411FBAD8EE002AA751 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				315608421FBAD90D002AA751 /* VAGlobal.h */,
+				315608431FBAD90D002AA751 /* VAGlobal.m */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
 		31D341D11FB1E7C4006D73CA = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +142,9 @@
 		31D341DC1FB1E7C4006D73CA /* V&A */ = {
 			isa = PBXGroup;
 			children = (
+				3156083A1FBAD88F002AA751 /* Category */,
 				3106D7FB1FB4533800476D25 /* Images */,
+				315608411FBAD8EE002AA751 /* Global */,
 				31D341FC1FB1EED7006D73CA /* Tools */,
 				31D341F31FB1E824006D73CA /* V&ACapture */,
 				3106D8141FB48FB900476D25 /* SupportingFiles */,
@@ -136,6 +164,8 @@
 				31D341F51FB1E841006D73CA /* VACapture.m */,
 				31D341F71FB1E992006D73CA /* H264Encoder.h */,
 				31D341F81FB1E992006D73CA /* H264Encoder.m */,
+				31F190131FB5D8C6000FAF7C /* H264Deencoder.h */,
+				31F190141FB5D8C6000FAF7C /* H264Deencoder.m */,
 				31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */,
 				31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */,
 			);
@@ -154,10 +184,6 @@
 		31D341FC1FB1EED7006D73CA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				31D341FD1FB1EED7006D73CA /* NSString+CDT.h */,
-				31D341FE1FB1EED7006D73CA /* NSString+CDT.m */,
-				3106D8111FB4873E00476D25 /* UIView+VLAdditions.h */,
-				3106D8121FB4873E00476D25 /* UIView+VLAdditions.m */,
 				3106D80E1FB4851B00476D25 /* VAHud.h */,
 				3106D80F1FB4851B00476D25 /* VAHud.m */,
 			);
@@ -202,6 +228,7 @@
 		31D341D21FB1E7C4006D73CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = VA;
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = "梁立保";
 				TargetAttributes = {
@@ -299,15 +326,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315608401FBAD88F002AA751 /* UIView+VLAdditions.m in Sources */,
 				31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */,
+				315608441FBAD90D002AA751 /* VAGlobal.m in Sources */,
 				31D341F61FB1E841006D73CA /* VACapture.m in Sources */,
 				3106D8101FB4851B00476D25 /* VAHud.m in Sources */,
-				31D341FF1FB1EED7006D73CA /* NSString+CDT.m in Sources */,
+				31F190151FB5D8C6000FAF7C /* H264Deencoder.m in Sources */,
 				31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */,
 				31D341ED1FB1E7C4006D73CA /* main.m in Sources */,
+				3156083F1FBAD88F002AA751 /* NSString+CDT.m in Sources */,
 				31D341DF1FB1E7C4006D73CA /* AppDelegate.m in Sources */,
 				31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */,
-				3106D8131FB4873E00476D25 /* UIView+VLAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
