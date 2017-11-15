@@ -10,24 +10,28 @@
 #import <UIKit/UIKit.h>
 #import "VACapture.h"
 #import "H264Encoder.h"
+#import "VAAACEncoder.h"
 #import <AVFoundation/AVFoundation.h>
 typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
-@interface VACapture() <AVCaptureVideoDataOutputSampleBufferDelegate>
-@property (nonatomic, weak) AVCaptureSession *session;
-@property (nonatomic, strong) AVCaptureDevice *device;
-@property (nonatomic, weak) AVCaptureVideoPreviewLayer *previewLayer;
-@property (nonatomic, strong) H264Encoder *encoder;
-@property (nonatomic, strong) dispatch_queue_t mCaptureQueue;
-@property (nonatomic, strong) dispatch_queue_t mEncodeQueue;
-@property (nonatomic, strong) dispatch_queue_t mainQueue;
+@interface VACapture() <AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate>
+@property (nonatomic, weak) AVCaptureSession *session; // 系统捕捉回话
+@property (nonatomic, strong) AVCaptureDevice *device; // 系统捕捉设备
+@property (nonatomic, weak) AVCaptureVideoPreviewLayer *previewLayer; // 视频预览图层
+@property (nonatomic, strong) H264Encoder *h264Encoder; // 视频硬编码器
+@property (nonatomic, strong) dispatch_queue_t mCaptureQueue; // 捕捉线程
+@property (nonatomic, strong) dispatch_queue_t mEncodeQueue; // 编码线程
+@property (nonatomic, strong) dispatch_queue_t mainQueue; // 主线程
+/** 音频 */
+@property (nonatomic, strong) AVCaptureDeviceInput *mCaptureAudioDeviceInput; // 音频输入
+@property (nonatomic, strong) AVCaptureAudioDataOutput *mCaptureAudioOutput; // 音频输出
+@property (nonatomic, strong) VAAACEncoder *aacEncoder; // AAC编码器
 
-//是否在对焦
-@property (assign, nonatomic) BOOL isFocus;
-@property (nonatomic, strong) UIImageView *focusCursor;
+@property (assign, nonatomic) BOOL isFocus; //是否在对焦
+@property (nonatomic, strong) UIImageView *focusCursor; // 对焦imageView
 @property (nonatomic, assign) BOOL voluntaryOpenTorch; // 是否自动开启过手电筒
 @property (nonatomic, assign) BOOL manualCloseTorch; // 是否自动开启的手电筒的情况下手动关闭了.
-@property (nonatomic, strong) UIButton *torchStateButton;
+@property (nonatomic, strong) UIButton *torchStateButton; // 手电筒
 @end
 
 @implementation VACapture
@@ -46,6 +50,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	if (![self isCameraAvailable]) {
 		return;
 	}
+	
 	// -3.注册通知
 	[self setupObservers];
 	// -2.给容器View添加Tap手势
@@ -71,12 +76,15 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	[torchStateButton addTarget:self action:@selector(torchStateButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 	
 	// 0.准备编码
-	self.encoder = [H264Encoder new];
-	[self.encoder prepareEncodeWithWidth:1080 height:1920];
+	self.h264Encoder = [H264Encoder new];
+	self.aacEncoder = [VAAACEncoder new];
+//	[self.encoder prepareEncodeWithWidth:1080 height:1920];
+	[self.h264Encoder prepareEncodeWithWidth:SCREEN_WIDTH height:SCREEN_HEIGHT];
 	
 	// 1.创建session
 	AVCaptureSession *session = [[AVCaptureSession alloc] init];
-	session.sessionPreset = AVCaptureSessionPreset1920x1080;
+	// AVCaptureSessionPreset1920x1080
+	session.sessionPreset = AVCaptureSessionPresetHigh;
 	self.session = session;
 	
 	// 2.设置视频的输入
@@ -97,20 +105,34 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	}
 	self.device = device;
 	
-	AVCaptureDeviceInput *input = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&error];
-	[session addInput:input];
+	AVCaptureDeviceInput *videoInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&error];
+	AVCaptureVideoDataOutput *videoOutput = [[AVCaptureVideoDataOutput alloc] init];
+	
+	// 音频
+	AVCaptureDevice *audioDevice= [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
+	self.mCaptureAudioDeviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:audioDevice error:nil];
+	self.mCaptureAudioOutput = [[AVCaptureAudioDataOutput alloc] init];
+
+	if ([session canAddInput:self.mCaptureAudioDeviceInput]) {
+		[session addInput:videoInput];
+		[session addInput:self.mCaptureAudioDeviceInput];
+	}
+	if ([session canAddOutput:self.mCaptureAudioOutput]) {
+		[session addOutput:self.mCaptureAudioOutput];
+		[session addOutput:videoOutput];
+	}
 	
 	// 3.设置视频的输出
-	AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
-	[output setSampleBufferDelegate:self queue:self.mCaptureQueue];
-	[output setAlwaysDiscardsLateVideoFrames:YES];
+	[videoOutput setSampleBufferDelegate:self queue:self.mCaptureQueue];
+	[self.mCaptureAudioOutput setSampleBufferDelegate:self queue:self.mCaptureQueue];
+	
+	[videoOutput setAlwaysDiscardsLateVideoFrames:YES];
 	// 设置录制视频的颜色空间为YUV420P
-	output.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange )};
-	[session addOutput:output];
+	videoOutput.videoSettings = @{(__bridge NSString *)kCVPixelBufferPixelFormatTypeKey: @(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange )};
 	
 	// 视频输出的方向
 	// 注意: 设置方向，必须在将output添加到session之后
-	AVCaptureConnection *connection = [output connectionWithMediaType:AVMediaTypeVideo];
+	AVCaptureConnection *connection = [videoOutput connectionWithMediaType:AVMediaTypeVideo];
 	if (connection.isVideoOrientationSupported) {
 		connection.videoOrientation = AVCaptureVideoOrientationPortrait;
 	} else {
@@ -169,6 +191,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 	});
 	
 	self.previewLayer = nil;
+	self.aacEncoder = nil;
 }
 
 //03.实现代理方法
@@ -179,53 +202,63 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 
 // 采集到视频帧画面
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer: (CMSampleBufferRef)sampleBuffer fromConnection: (AVCaptureConnection *)connection {
-//	NSLog(@"采集到视频画面");
-	//	AVCaptureVideoDataOutput *output = [self.session.outputs firstObject];
-	//	AVCaptureConnection *connect = [output.connections firstObject];
-	//	NSLog(@"%ld", connect.videoOrientation);
-
-	// 开始编码
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection: (AVCaptureConnection *)connection {
 	__weak typeof(self) weakSelf = self;
-	dispatch_sync(self.mEncodeQueue, ^{
-//		typeof(self) strongSelf = weakSelf;
-		[weakSelf.encoder encodeFrame:sampleBuffer];
-	});
-	
-	CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
-	NSDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary *)metadataDict];
-	CFRelease(metadataDict);
-	NSDictionary * exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
-	float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
-	
-	if (brightnessValue <= -1 && (self.device.position == AVCaptureDevicePositionBack)) {
-		// 判断如果有手动关闭了闪光灯就不再自动开启
-		if (self.manualCloseTorch) {
-			return;
-		}
+	if (captureOutput == self.mCaptureAudioOutput) {
+		// 捕捉到音频
+		// 开始AAC编码
+		dispatch_sync(self.mEncodeQueue, ^{
+			[weakSelf.aacEncoder encodeSampleBuffer:sampleBuffer completionBlock:^(NSData *encodedData, NSError *error) {
+				NSLog(@"成功aac编码");
+			}];
 		
-		NSError *error;
-		// TODO:还需要判断当从前置摄像头切换来时不能立马开启摄像头..(不然导致捕捉出错,画面暂停)
-		
-		if ([self.device lockForConfiguration:&error]) {
-			// 首先判断是否有闪光灯.
-			if (self.device.hasTorch) {
-				[self.device setTorchMode:AVCaptureTorchModeOn];
-			}
-			// 自动根据环境条件开启闪光灯
-			self.voluntaryOpenTorch = YES;
-			[self.device unlockForConfiguration];
-		}
-		
-					   
-		dispatch_async(self.mainQueue, ^{
-			[weakSelf.torchStateButton setTitle:@"关闭手电筒" forState:UIControlStateNormal];
-			[weakSelf.torchStateButton setTitle:@"关闭手电筒" forState:UIControlStateHighlighted];
-			weakSelf.torchStateButton.selected = YES;
 		});
-	}
 	
-	NSLog(@"%f", brightnessValue);
+	} else {
+		//	NSLog(@"采集到视频画面");
+		// 开始H264编码
+		dispatch_sync(self.mEncodeQueue, ^{
+			//		typeof(self) strongSelf = weakSelf;
+			[weakSelf.h264Encoder encodeFrame:sampleBuffer];
+		});
+		
+		CFDictionaryRef metadataDict = CMCopyDictionaryOfAttachments(NULL, sampleBuffer, kCMAttachmentMode_ShouldPropagate);
+		NSDictionary *metadata = [[NSMutableDictionary alloc] initWithDictionary:(__bridge NSDictionary *)metadataDict];
+		CFRelease(metadataDict);
+		NSDictionary * exifMetadata = [[metadata objectForKey:(NSString *)kCGImagePropertyExifDictionary] mutableCopy];
+		float brightnessValue = [[exifMetadata objectForKey:(NSString *)kCGImagePropertyExifBrightnessValue] floatValue];
+		
+		if (brightnessValue <= -1 && (self.device.position == AVCaptureDevicePositionBack)) {
+			// 判断如果有手动关闭了闪光灯就不再自动开启
+			if (self.manualCloseTorch) {
+				return;
+			}
+			
+			NSError *error;
+			// TODO:还需要判断当从前置摄像头切换来时不能立马开启摄像头..(不然导致捕捉出错,画面暂停)
+			
+			if ([self.device lockForConfiguration:&error]) {
+				// 首先判断是否有闪光灯.
+				if (self.device.hasTorch) {
+					[self.device setTorchMode:AVCaptureTorchModeOn];
+				}
+				// 自动根据环境条件开启闪光灯
+				self.voluntaryOpenTorch = YES;
+				[self.device unlockForConfiguration];
+			}
+			
+			
+			dispatch_async(self.mainQueue, ^{
+				[weakSelf.torchStateButton setTitle:@"关闭手电筒" forState:UIControlStateNormal];
+				[weakSelf.torchStateButton setTitle:@"关闭手电筒" forState:UIControlStateHighlighted];
+				weakSelf.torchStateButton.selected = YES;
+			});
+		}
+		
+		NSLog(@"%f", brightnessValue);
+		
+	}
+
 	
 }
 

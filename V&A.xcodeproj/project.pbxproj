@@ -24,6 +24,7 @@
 		31D341F61FB1E841006D73CA /* VACapture.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F51FB1E841006D73CA /* VACapture.m */; };
 		31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F81FB1E992006D73CA /* H264Encoder.m */; };
 		31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */; };
+		31D623701FBC1C11005DB8ED /* VAAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */; };
 		31F190151FB5D8C6000FAF7C /* H264Deencoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F190141FB5D8C6000FAF7C /* H264Deencoder.m */; };
 		7DD4FE171B89B7772201EADA /* libPods-V&A.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,8 @@
 		31D341FB1FB1EABB006D73CA /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
 		31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
+		31D6236E1FBC1C11005DB8ED /* VAAACEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAAACEncoder.h; sourceTree = "<group>"; };
+		31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAAACEncoder.m; sourceTree = "<group>"; };
 		31F190131FB5D8C6000FAF7C /* H264Deencoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Deencoder.h; sourceTree = "<group>"; };
 		31F190141FB5D8C6000FAF7C /* H264Deencoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Deencoder.m; sourceTree = "<group>"; };
 		431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				31F190141FB5D8C6000FAF7C /* H264Deencoder.m */,
 				31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */,
 				31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */,
+				31D6236E1FBC1C11005DB8ED /* VAAACEncoder.h */,
+				31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */,
 			);
 			path = "V&ACapture";
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				315608401FBAD88F002AA751 /* UIView+VLAdditions.m in Sources */,
+				31D623701FBC1C11005DB8ED /* VAAACEncoder.m in Sources */,
 				31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */,
 				315608441FBAD90D002AA751 /* VAGlobal.m in Sources */,
 				31D341F61FB1E841006D73CA /* VACapture.m in Sources */,

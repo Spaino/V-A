@@ -61,7 +61,8 @@ const char pStartCode[]= "\x00\x00\x00\x01";
 
 - (void)play:(CVImageBufferRefBlock)imageBufferBlock {
 	// 1.初始化一次读取多少数据，以及数据的长度，数据存放在哪里
-	inputMaxSize = 1920 * 1080;
+//	inputMaxSize = 1920 * 1080;
+	inputMaxSize = SCREEN_HEIGHT * SCREEN_WIDTH;
 	inputSize = 0;
 	inputBuffer = malloc(inputMaxSize);
 	self.imageBufferBlock = imageBufferBlock;

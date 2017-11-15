@@ -11,9 +11,9 @@
 #import <VideoToolbox/VideoToolbox.h>
 
 @interface H264Encoder ()
-@property (nonatomic,assign) VTCompressionSessionRef compressionSession;
-@property (nonatomic,assign) int frameIndex;
-@property (nonatomic,strong) NSFileHandle *fileHandle;
+@property (nonatomic, assign) VTCompressionSessionRef compressionSession;
+@property (nonatomic, assign) int frameIndex;
+@property (nonatomic, strong) NSFileHandle *fileHandle;
 @end
 
 @implementation H264Encoder
