@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 extern NSString *const sourceVideoName;
-
+extern NSString *const sourceAudioName;
 
 @interface VAGlobal : NSObject
 

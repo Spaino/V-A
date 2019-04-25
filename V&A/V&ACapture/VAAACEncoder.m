@@ -36,7 +36,7 @@
 											   DISPATCH_QUEUE_SERIAL) ;
 		
 		// 音频编码文件
-		NSString *audioFile = [@"va.aac" cacheDir];
+		NSString *audioFile = [sourceAudioName cacheDir];
 		[[NSFileManager defaultManager] removeItemAtPath:audioFile error:nil];
 		[[NSFileManager defaultManager] createFileAtPath:audioFile contents:nil attributes:nil];
 		_audioFileHandle = [NSFileHandle fileHandleForWritingAtPath:audioFile];

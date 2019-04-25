@@ -1,5 +1,5 @@
 //
-//  H264Deencoder.h
+//  H264Decoder.h
 //  V&A
 //
 //  Created by 梁立保 on 2017/11/10.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+CDT.h"
-@class H264Deencoder;
-typedef void (^CVImageBufferRefBlock)(CVImageBufferRef imageBuffer, BOOL isOver, H264Deencoder *deEncoder);
-@interface H264Deencoder : NSObject
+@class H264Decoder;
+typedef void (^CVImageBufferRefBlock)(CVImageBufferRef imageBuffer, BOOL isOver, H264Decoder *deEncoder);
+@interface H264Decoder : NSObject
 - (void)play:(CVImageBufferRefBlock)imageBufferBlock;
 @end

@@ -1,18 +1,18 @@
 //
-//  H264Deencoder.m
+//  H264Decoder.m
 //  V&A
 //
 //  Created by 梁立保 on 2017/11/10.
 //  Copyright © 2017年 梁立保. All rights reserved.
 //
 
-#import "H264Deencoder.h"
+#import "H264Decoder.h"
 //#import "AAPLEAGLLayer.h"
 #import <VideoToolbox/VideoToolbox.h>
 
 const char pStartCode[]= "\x00\x00\x00\x01";
 
-@interface H264Deencoder () {
+@interface H264Decoder () {
 	// 读取到的数据
 	long inputMaxSize;
 	long inputSize;
@@ -37,7 +37,7 @@ const char pStartCode[]= "\x00\x00\x00\x01";
 @property (nonatomic, strong) CVImageBufferRefBlock imageBufferBlock;
 @end;
 
-@implementation H264Deencoder
+@implementation H264Decoder
 - (instancetype)init {
 	if (self = [super init]) {
 		// 1.创建CADisplayLink
@@ -100,7 +100,7 @@ const char pStartCode[]= "\x00\x00\x00\x01";
 void decodecallback(void * CM_NULLABLE decompressionOutputRefCon, void * CM_NULLABLE sourceFrameRefCon, OSStatus status, VTDecodeInfoFlags infoFlags, CM_NULLABLE CVImageBufferRef imageBuffer, CMTime presentationTimeStamp, CMTime presentationDuration) {
 	// 展示解码的视频
 	
-	H264Deencoder *mySelf = (__bridge H264Deencoder *)sourceFrameRefCon;
+	H264Decoder *mySelf = (__bridge H264Decoder *)sourceFrameRefCon;
 	__weak typeof(mySelf) weakSelf = mySelf;
 //	dispatch_async(dispatch_get_main_queue(), ^{
 		if (mySelf.imageBufferBlock) {

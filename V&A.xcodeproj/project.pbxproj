@@ -25,7 +25,8 @@
 		31D341F91FB1E992006D73CA /* H264Encoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D341F81FB1E992006D73CA /* H264Encoder.m */; };
 		31D342021FB1F4D6006D73CA /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */; };
 		31D623701FBC1C11005DB8ED /* VAAACEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */; };
-		31F190151FB5D8C6000FAF7C /* H264Deencoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F190141FB5D8C6000FAF7C /* H264Deencoder.m */; };
+		31F113B3226F21CD009B982C /* VAAACDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F113B2226F21CD009B982C /* VAAACDecoder.m */; };
+		31F190151FB5D8C6000FAF7C /* H264Decoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F190141FB5D8C6000FAF7C /* H264Decoder.m */; };
 		7DD4FE171B89B7772201EADA /* libPods-V&A.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */; };
 /* End PBXBuildFile section */
 
@@ -62,8 +63,10 @@
 		31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
 		31D6236E1FBC1C11005DB8ED /* VAAACEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAAACEncoder.h; sourceTree = "<group>"; };
 		31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAAACEncoder.m; sourceTree = "<group>"; };
-		31F190131FB5D8C6000FAF7C /* H264Deencoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Deencoder.h; sourceTree = "<group>"; };
-		31F190141FB5D8C6000FAF7C /* H264Deencoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Deencoder.m; sourceTree = "<group>"; };
+		31F113B1226F21CD009B982C /* VAAACDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VAAACDecoder.h; sourceTree = "<group>"; };
+		31F113B2226F21CD009B982C /* VAAACDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VAAACDecoder.m; sourceTree = "<group>"; };
+		31F190131FB5D8C6000FAF7C /* H264Decoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = H264Decoder.h; sourceTree = "<group>"; };
+		31F190141FB5D8C6000FAF7C /* H264Decoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = H264Decoder.m; sourceTree = "<group>"; };
 		431FBC9A1463310406EA0E7D /* Pods-V&A.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.debug.xcconfig"; sourceTree = "<group>"; };
 		9D878EAE6F715F77EA1E0527 /* libPods-V&A.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-V&A.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA4BE0A76C4A79F722FF2E3E /* Pods-V&A.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V&A.release.xcconfig"; path = "Pods/Target Support Files/Pods-V&A/Pods-V&A.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,12 +170,14 @@
 				31D341F51FB1E841006D73CA /* VACapture.m */,
 				31D341F71FB1E992006D73CA /* H264Encoder.h */,
 				31D341F81FB1E992006D73CA /* H264Encoder.m */,
-				31F190131FB5D8C6000FAF7C /* H264Deencoder.h */,
-				31F190141FB5D8C6000FAF7C /* H264Deencoder.m */,
+				31F190131FB5D8C6000FAF7C /* H264Decoder.h */,
+				31F190141FB5D8C6000FAF7C /* H264Decoder.m */,
 				31D342001FB1F4D6006D73CA /* AAPLEAGLLayer.h */,
 				31D342011FB1F4D6006D73CA /* AAPLEAGLLayer.m */,
 				31D6236E1FBC1C11005DB8ED /* VAAACEncoder.h */,
 				31D6236F1FBC1C11005DB8ED /* VAAACEncoder.m */,
+				31F113B1226F21CD009B982C /* VAAACDecoder.h */,
+				31F113B2226F21CD009B982C /* VAAACDecoder.m */,
 			);
 			path = "V&ACapture";
 			sourceTree = "<group>";
@@ -337,7 +342,8 @@
 				315608441FBAD90D002AA751 /* VAGlobal.m in Sources */,
 				31D341F61FB1E841006D73CA /* VACapture.m in Sources */,
 				3106D8101FB4851B00476D25 /* VAHud.m in Sources */,
-				31F190151FB5D8C6000FAF7C /* H264Deencoder.m in Sources */,
+				31F190151FB5D8C6000FAF7C /* H264Decoder.m in Sources */,
+				31F113B3226F21CD009B982C /* VAAACDecoder.m in Sources */,
 				31D341E21FB1E7C4006D73CA /* ViewController.m in Sources */,
 				31D341ED1FB1E7C4006D73CA /* main.m in Sources */,
 				3156083F1FBAD88F002AA751 /* NSString+CDT.m in Sources */,

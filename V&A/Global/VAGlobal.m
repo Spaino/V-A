@@ -7,8 +7,8 @@
 //
 
 #import "VAGlobal.h"
-NSString * const sourceVideoName = @"va.h264";
-
+NSString *const sourceVideoName = @"va.h264";
+NSString *const sourceAudioName = @"va.aac";
 @implementation VAGlobal
 
 @end
